@@ -28,8 +28,8 @@ module.exports = function(passport) {
 
 	// Configuración del autenticado con Twitter
 	passport.use(new TwitterStrategy({
-		consumerKey		 : 'uxa33f9yBVQsbdxpm1Xp4SROF',
-		consumerSecret	: 'RCHBQljurE6t09AAkGGpZ3JUnwB42vcmcB9ne1N5j9rNrj3NCu',
+		consumerKey		 : config.twitter.key,//'uxa33f9yBVQsbdxpm1Xp4SROF',
+		consumerSecret	: config.twitter.secret,//'RCHBQljurE6t09AAkGGpZ3JUnwB42vcmcB9ne1N5j9rNrj3NCu',
 		callbackURL		 : '/auth/twitter/callback'
 	}, function(accessToken, refreshToken, profile, done) {
 		// Busca en la base de datos si el usuario ya se autenticó en otro
@@ -56,8 +56,8 @@ module.exports = function(passport) {
 
 	// Configuración del autenticado con Facebook
 	passport.use(new FacebookStrategy({
-		clientID			: '754657637972313',
-		clientSecret	: 'e4a2dc4d8b2af80389ec981c4f90945b',
+		clientID			: config.facebook.id,//'754657637972313',
+		clientSecret	: config.facebook.secret,//'e4a2dc4d8b2af80389ec981c4f90945b',
 		callbackURL	 : '/auth/facebook/callback',
 		profileFields : ['id', 'displayName', /*'provider',*/ 'photos']
 	}, function(accessToken, refreshToken, profile, done) {
